@@ -332,7 +332,7 @@
                         <li><a href="https://olrender89.github.io/WEB-FINAL-OL/#sobre-mi">Inicio</a></li>
                         <li><a href="https://olrender89.github.io/WEB-FINAL-OL/#servicios">Servicios</a></li>
                         <li><a href="https://olrender89.github.io/WEB-FINAL-OL/#proyectos">Proyectos</a></li>
-                        <li><a href="equipo.html" style="color: var(--color-dorado);">Equipo</a></li>
+                        <li><a href="#" id="equipo-link" style="color: var(--color-dorado);">Equipo</a></li>
                         <li><a href="https://olrender89.github.io/WEB-FINAL-OL/#contacto">Contacto</a></li>
                     </ul>
                 </nav>
@@ -408,5 +408,13 @@
             <p>Teléfono: 626 275 068 | Email: olrender89@gmail.com</p>
         </div>
     </footer>
+
+    <script>
+        // Prevenir comportamiento por defecto del enlace "Equipo"
+        document.getElementById('equipo-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            // No hacer nada, mantener en la posición actual
+        });
+    </script>
 </body>
 </html>
