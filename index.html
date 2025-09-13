@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Equipo - O.L Render</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-azul-principal: #1E3A8A;
+            --color-dorado: #C5A253;
+            --color-blanco: #FFFFFF;
+            --color-negro: #000000;
+            --color-azul-claro: #F3F6FB;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background-color: var(--color-blanco);
+            color: var(--color-negro);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header con efecto GIF */
+        header {
+            background-color: var(--color-negro);
+            color: var(--color-blanco);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.5s ease;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--color-azul-principal), var(--color-dorado), var(--color-azul-principal));
+            background-size: 400% 400%;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.5s ease;
+        }
+
+        header:hover::before {
+            opacity: 1;
+            animation: gradientAnimation 3s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            height: 60px;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--color-dorado);
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        header:hover .logo {
+            color: var(--color-blanco);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-blanco);
+            font-weight: 600;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-dorado);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--color-dorado);
+        }
+
+        header:hover nav a {
+            color: var(--color-blanco);
+        }
+
+        header:hover nav a:hover {
+            color: var(--color-dorado);
+        }
+
+        /* Sección Hero */
+        .hero {
+            background-color: var(--color-azul-claro);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: var(--color-azul-principal);
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Sección Equipo */
+        .equipo {
+            padding: 80px 0;
+            background-color: var(--color-blanco);
+        }
+
+        .miembros-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            margin-top: 50px;
+        }
+
+        .miembro {
+            display: flex;
+            align-items: center;
+            background-color: var(--color-blanco);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .miembro:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .miembro-imagen {
+            flex: 0 0 40%;
+            overflow: hidden;
+        }
+
+        .miembro-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .miembro:hover .miembro-imagen img {
+            transform: scale(1.05);
+        }
+
+        .miembro-info {
+            flex: 0 0 60%;
+            padding: 40px;
+        }
+
+        .miembro-info h3 {
+            color: var(--color-azul-principal);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .miembro-rol {
+            color: var(--color-dorado);
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .miembro-desc {
+            color: var(--color-negro);
+            line-height: 1.8;
+        }
+
+        /* Sección CTA */
+        .cta {
+            background-color: var(--color-azul-claro);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: var(--color-azul-principal);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn-cta {
+            background-color: var(--color-azul-principal);
+            color: var(--color-blanco);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--color-dorado);
+            color: var(--color-negro);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-negro);
+            color: var(--color-blanco);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsividad */
+        @media (max-width: 992px) {
+            .miembro {
+                flex-direction: column;
+            }
+            
+            .miembro-imagen, .miembro-info {
+                flex: 0 0 100%;
+            }
+            
+            .miembro-info {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-content nav {
+                margin-top: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .miembro-info h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">O.L Render</div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#servicios">Servicios</a></li>
+                        <li><a href="index.html#proyectos">Proyectos</a></li>
+                        <li><a href="equipo.html" style="color: var(--color-dorado);">Equipo</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Conoce a nuestro equipo</h1>
+                <p>En O.L Render, creemos que el talento humano es el pilar fundamental de nuestro éxito. Nuestro equipo multidisciplinario combina creatividad, técnica y pasión por transformar espacios en experiencias visuales impactantes. Conoce a las mentes detrás de cada proyecto.</p>
+            </div>
+        </section>
+
+        <!-- Sección Equipo -->
+        <section class="equipo">
+            <div class="container">
+                <div class="miembros-grid">
+                    <!-- Miembro 1 -->
+                    <div class="miembro">
+                        <div class="miembro-imagen">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Óscar López - Fundador y Director Creativo">
+                        </div>
+                        <div class="miembro-info">
+                            <h3>Óscar López</h3>
+                            <span class="miembro-rol">Fundador y Director Creativo</span>
+                            <p class="miembro-desc">Con más de 10 años de experiencia en diseño de interiores y visualización 3D, Óscar lidera nuestro equipo con una visión clara: crear espacios que emocionen. Su expertise abarca desde el diseño residencial hasta proyectos comerciales de gran envergadura, siempre buscando la perfección en cada detalle.</p>
+                        </div>
+                    </div>
+
+                    <!-- Miembro 2 -->
+                    <div class="miembro">
+                        <div class="miembro-imagen">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80" alt="Laura Méndez - Arquitecta y Diseñadora de Interiores">
+                        </div>
+                        <div class="miembro-info">
+                            <h3>Laura Méndez</h3>
+                            <span class="miembro-rol">Arquitecta y Diseñadora de Interiores</span>
+                            <p class="miembro-desc">Laura es la encargada de materializar las ideas en planos técnicos precisos y funcionales. Con un ojo excepcional para la distribución espacial y los flujos de circulación, garantiza que cada diseño no solo sea estéticamente impresionante, sino también práctico y habitable.</p>
+                        </div>
+                    </div>
+
+                    <!-- Miembro 3 -->
+                    <div class="miembro">
+                        <div class="miembro-imagen">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Carlos Ruiz - Especialista en Render 3D">
+                        </div>
+                        <div class="miembro-info">
+                            <h3>Carlos Ruiz</h3>
+                            <span class="miembro-rol">Especialista en Render 3D</span>
+                            <p class="miembro-desc">Carlos es el mago detrás de nuestros renders fotorrealistas. Domina las últimas tecnologías de visualización para crear imágenes que capturan no solo la apariencia, sino la esencia y atmósfera de cada espacio. Su atención al detalle en iluminación y texturas hace que nuestros renders sean prácticamente indistinguibles de la realidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección CTA -->
+        <section class="cta">
+            <div class="container">
+                <h2>¿Tienes un proyecto en mente?</h2>
+                <p>Nuestro equipo está listo para transformar tus ideas en experiencias visuales impactantes. Contáctanos y descubre cómo podemos hacer realidad tu visión.</p>
+                <a href="index.html#contacto" class="btn-cta">Contactar ahora</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 O.L Render - Todos los derechos reservados</p>
+            <p>Teléfono: 626 275 068 | Email: olrender89@gmail.com</p>
+        </div>
+    </footer>
+</body>
+</html>
