@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestro Equipo - O.L Render</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --color-azul-principal: #1E3A8A;
-            --color-dorado: #C5A253;
+            --color-rojo-principal: #dd3333;
+            --color-rojo-oscuro: #c52e2e;
             --color-blanco: #FFFFFF;
-            --color-negro: #000000;
-            --color-azul-claro: #F3F6FB;
+            --color-negro: #111111;
+            --color-gris-claro: #F0F5FA;
+            --color-gris: #D1D5DB;
+            --color-texto: #111827;
         }
 
         * {
@@ -23,77 +26,47 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: "Poppins", sans-serif;
+            font-family: "Montserrat", sans-serif;
             background-color: var(--color-blanco);
-            color: var(--color-negro);
+            color: var(--color-texto);
             line-height: 1.6;
             position: relative;
         }
 
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
         }
 
-        /* Header con efecto GIF */
+        /* Header estilo Davant */
         header {
-            background-color: var(--color-negro);
-            color: var(--color-blanco);
+            background-color: var(--color-blanco);
+            color: var(--color-negro);
             position: sticky;
             top: 0;
             z-index: 1000;
-            transition: all 0.5s ease;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--color-azul-principal), var(--color-dorado), var(--color-azul-principal));
-            background-size: 400% 400%;
-            opacity: 0;
-            z-index: -1;
-            transition: opacity 0.5s ease;
-        }
-
-        header:hover::before {
-            opacity: 1;
-            animation: gradientAnimation 3s ease infinite;
-        }
-
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
         }
 
         .header-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px 0;
             position: relative;
-            z-index: 1;
         }
 
         .logo {
-            height: 60px;
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--color-dorado);
+            height: 46px;
             display: flex;
             align-items: center;
-            transition: color 0.3s ease;
         }
 
-        header:hover .logo {
-            color: var(--color-blanco);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        .logo span {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-negro);
         }
 
         nav ul {
@@ -104,13 +77,14 @@
         }
 
         nav li {
-            margin-left: 20px;
+            margin-left: 25px;
         }
 
         nav a {
             text-decoration: none;
-            color: var(--color-blanco);
+            color: var(--color-negro);
             font-weight: 600;
+            font-size: 15px;
             transition: color 0.3s;
             position: relative;
             padding: 5px 0;
@@ -123,7 +97,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--color-dorado);
+            background-color: var(--color-rojo-principal);
             transition: width 0.3s ease;
         }
 
@@ -132,40 +106,79 @@
         }
 
         nav a:hover {
-            color: var(--color-dorado);
+            color: var(--color-rojo-principal);
         }
 
-        header:hover nav a {
+        .btn-presupuesto-header {
+            background-color: var(--color-rojo-principal);
             color: var(--color-blanco);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 0;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: "Montserrat", sans-serif;
         }
 
-        header:hover nav a:hover {
-            color: var(--color-dorado);
+        .btn-presupuesto-header:hover {
+            background-color: var(--color-rojo-oscuro);
         }
 
-        /* Sección Hero */
+        /* Hero Section */
         .hero {
-            background-color: var(--color-azul-claro);
-            padding: 80px 0;
+            position: relative;
+            padding: 100px 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            background-color: var(--color-gris-claro);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            z-index: 2;
         }
 
         .hero h1 {
-            color: var(--color-azul-principal);
-            font-size: 2.8rem;
+            font-size: 3rem;
+            font-weight: 700;
             margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--color-rojo-principal);
         }
 
         .hero p {
             font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
+            margin-bottom: 30px;
         }
 
         /* Sección Equipo */
         .equipo {
             padding: 80px 0;
             background-color: var(--color-blanco);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--color-rojo-principal);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--color-texto);
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .miembros-grid {
@@ -179,20 +192,21 @@
             display: flex;
             align-items: center;
             background-color: var(--color-blanco);
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .miembro:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
         }
 
         .miembro-imagen {
             flex: 0 0 40%;
             overflow: hidden;
+            height: 400px;
         }
 
         .miembro-imagen img {
@@ -212,13 +226,13 @@
         }
 
         .miembro-info h3 {
-            color: var(--color-azul-principal);
+            color: var(--color-rojo-principal);
             font-size: 1.8rem;
             margin-bottom: 10px;
         }
 
         .miembro-rol {
-            color: var(--color-dorado);
+            color: var(--color-rojo-oscuro);
             font-weight: 600;
             margin-bottom: 20px;
             display: block;
@@ -226,19 +240,19 @@
         }
 
         .miembro-desc {
-            color: var(--color-negro);
+            color: var(--color-texto);
             line-height: 1.8;
         }
 
         /* Sección CTA */
         .cta {
-            background-color: var(--color-azul-claro);
+            background-color: var(--color-gris-claro);
             padding: 80px 0;
             text-align: center;
         }
 
         .cta h2 {
-            color: var(--color-azul-principal);
+            color: var(--color-rojo-principal);
             font-size: 2.2rem;
             margin-bottom: 20px;
         }
@@ -250,31 +264,77 @@
         }
 
         .btn-cta {
-            background-color: var(--color-azul-principal);
+            background-color: var(--color-rojo-principal);
             color: var(--color-blanco);
             border: none;
             padding: 15px 30px;
-            border-radius: 5px;
-            font-size: 1.1rem;
+            border-radius: 0;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.3s;
             text-decoration: none;
             display: inline-block;
+            font-family: "Montserrat", sans-serif;
         }
 
         .btn-cta:hover {
-            background-color: var(--color-dorado);
-            color: var(--color-negro);
+            background-color: var(--color-rojo-oscuro);
         }
 
         /* Footer */
         footer {
-            background-color: var(--color-negro);
+            background-color: var(--color-rojo-principal);
             color: var(--color-blanco);
             text-align: center;
-            padding: 20px 0;
+            padding: 40px 0 20px;
             font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--color-blanco);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--color-blanco);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
+        }
+
+        /* Mobile menu */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-negro);
         }
 
         /* Responsividad */
@@ -290,9 +350,18 @@
             .miembro-info {
                 padding: 30px;
             }
+
+            .miembro-imagen {
+                height: 300px;
+            }
         }
 
         @media (max-width: 768px) {
+            .servicios-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
             nav ul {
                 flex-direction: column;
                 align-items: center;
@@ -311,13 +380,71 @@
             .header-content nav {
                 margin-top: 15px;
             }
+
+            .hero {
+                padding: 60px 0;
+            }
             
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title p {
+                font-size: 1rem;
             }
             
             .miembro-info h3 {
                 font-size: 1.5rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            nav li {
+                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .btn-presupuesto-header {
+                margin-top: 15px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-section {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 544px) {
+            .section {
+                padding: 60px 0;
             }
         }
     </style>
@@ -326,16 +453,27 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">O.L Render</div>
-                <nav>
+                <div class="logo">
+                    <a href="#">
+                        <span>O.L RENDER</span>
+                    </a>
+                </div>
+                
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav id="mainNav">
                     <ul>
                         <li><a href="https://olrender89.github.io/WEB-FINAL-OL/#sobre-mi">Inicio</a></li>
                         <li><a href="https://olrender89.github.io/WEB-FINAL-OL/#servicios">Servicios</a></li>
                         <li><a href="https://olrender89.github.io/WEB-FINAL-OL/#proyectos">Proyectos</a></li>
-                        <li><a href="#" id="equipo-link" style="color: var(--color-dorado);">Equipo</a></li>
+                        <li><a href="#" id="equipo-link" style="color: var(--color-rojo-principal);">Equipo</a></li>
                         <li><a href="https://olrender89.github.io/WEB-FINAL-OL/#contacto">Contacto</a></li>
                     </ul>
                 </nav>
+                
+                <button class="btn-presupuesto-header" onclick="location.href='https://olrender89.github.io/WEB-FINAL-OL/#contacto'">CONTACTO</button>
             </div>
         </div>
     </header>
@@ -344,14 +482,21 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="container">
-                <h1>Conoce a nuestro equipo</h1>
-                <p>En O.L Render, creemos que el talento humano es el pilar fundamental de nuestro éxito. Nuestro equipo multidisciplinario combina creatividad, técnica y pasión por transformar espacios en experiencias visuales impactantes. Conoce a las mentes detrás de cada proyecto.</p>
+                <div class="hero-content">
+                    <h1>Conoce a nuestro equipo</h1>
+                    <p>En O.L Render, creemos que el talento humano es el pilar fundamental de nuestro éxito. Nuestro equipo combina creatividad, técnica y pasión por transformar espacios en experiencias visuales impactantes.</p>
+                </div>
             </div>
         </section>
 
         <!-- Sección Equipo -->
         <section class="equipo">
             <div class="container">
+                <div class="section-title">
+                    <h2>Nuestro Equipo</h2>
+                    <p>Conoce a los profesionales que hacen posible cada proyecto</p>
+                </div>
+                
                 <div class="miembros-grid">
                     <!-- Miembro 1 -->
                     <div class="miembro">
@@ -361,31 +506,31 @@
                         <div class="miembro-info">
                             <h3>Darío Ruiz de Aguiar Olivenza</h3>
                             <span class="miembro-rol">Diseñador de Interiores y Especialista en render 3D</span>
-                            <p class="miembro-desc"> Darío es el encargado de transformar los conceptos en imágenes hiperrealistas que permiten visualizar cada detalle antes de hacerse realidad. Con dominio de la luz, los materiales y la atmósfera, aporta una visión clara y evocadora del resultado final. Su capacidad para unir diseño y tecnología convierte cada proyecto en una experiencia tangible y emocionante desde la fase de idea.</p>
+                            <p class="miembro-desc">Darío es el encargado de transformar los conceptos en imágenes hiperrealistas que permiten visualizar cada detalle antes de hacerse realidad. Con dominio de la luz, los materiales y la atmósfera, aporta una visión clara y evocadora del resultado final. Su capacidad para unir diseño y tecnología convierte cada proyecto en una experiencia tangible y emocionante desde la fase de idea.</p>
                         </div>
                     </div>
 
                     <!-- Miembro 2 -->
                     <div class="miembro">
                         <div class="miembro-imagen">
-                            <img src="PONER FOTO" alt="MIEMBRO">
+                            <img src="https://via.placeholder.com/400x400" alt="MIEMBRO">
                         </div>
                         <div class="miembro-info">
                             <h3>MIEMBRO</h3>
                             <span class="miembro-rol">MIEMBRO</span>
-                            <p class="miembro-desc"></p>
+                            <p class="miembro-desc">Descripción del miembro del equipo.</p>
                         </div>
                     </div>
 
                     <!-- Miembro 3 -->
                     <div class="miembro">
                         <div class="miembro-imagen">
-                            <img src="PONER FOTO" alt="MIEMBRO">
+                            <img src="https://via.placeholder.com/400x400" alt="MIEMBRO">
                         </div>
                         <div class="miembro-info">
                             <h3>MIEMBRO</h3>
                             <span class="miembro-rol">MIEMBRO</span>
-                            <p class="miembro-desc"></p>
+                            <p class="miembro-desc">Descripción del miembro del equipo.</p>
                         </div>
                     </div>
                 </div>
@@ -404,8 +549,31 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 O.L Render - Todos los derechos reservados</p>
-            <p>Teléfono: 626 275 068 | Email: olrender89@gmail.com</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>O.L Render</h3>
+                    <p>Expertos en visualización 3D y renders arquitectónicos de alta calidad.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>Teléfono: 626 275 068</p>
+                    <p>Email: olrender89@gmail.com</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces rápidos</h3>
+                    <a href="https://olrender89.github.io/WEB-FINAL-OL/#sobre-mi">Inicio</a>
+                    <a href="https://olrender89.github.io/WEB-FINAL-OL/#servicios">Servicios</a>
+                    <a href="https://olrender89.github.io/WEB-FINAL-OL/#proyectos">Proyectos</a>
+                    <a href="#">Equipo</a>
+                    <a href="https://olrender89.github.io/WEB-FINAL-OL/#contacto">Contacto</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 O.L Render - Todos los derechos reservados</p>
+            </div>
         </div>
     </footer>
 
@@ -413,7 +581,35 @@
         // Prevenir comportamiento por defecto del enlace "Equipo"
         document.getElementById('equipo-link').addEventListener('click', function(e) {
             e.preventDefault();
-            // No hacer nada, mantener en la posición actual
+        });
+
+        // Menu toggle para móviles
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+            
+            // Cambiar ícono del menú
+            const icono = this.querySelector('i');
+            if (nav.classList.contains('active')) {
+                icono.classList.remove('fa-bars');
+                icono.classList.add('fa-times');
+            } else {
+                icono.classList.remove('fa-times');
+                icono.classList.add('fa-bars');
+            }
+        });
+
+        // Cerrar menú móvil al hacer clic en un enlace
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                const nav = document.getElementById('mainNav');
+                if (window.innerWidth <= 768 && nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    const menuToggle = document.getElementById('menuToggle');
+                    menuToggle.querySelector('i').classList.remove('fa-times');
+                    menuToggle.querySelector('i').classList.add('fa-bars');
+                }
+            });
         });
     </script>
 </body>
